@@ -15,5 +15,25 @@ public class Pilot extends Actor
     public void act()
     {
         // Add your action code here.
+        movement();
     }
+    
+    public void movement()
+    {
+        if (Greenfoot.isKeyDown("W"))
+        {
+            setRotation(270);
+            move(1);
+        }
+        if (Greenfoot.isKeyDown("S"))
+        {
+            setRotation(90);
+            move(1);
+        }
+        if (Greenfoot.isKeyDown("space"))
+        {
+            setRotation(0);
+        }
+    }
+    
 }

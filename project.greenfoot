@@ -1,9 +1,10 @@
 #Greenfoot project file
+class.MyWorld.image=9470363_4161612.jpg
 class.Pilot.image=Fly\ (1).png
-editor.fx.0.height=694
-editor.fx.0.width=1294
-editor.fx.0.x=-7
-editor.fx.0.y=-7
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
 height=694
 package.numDependencies=0
 package.numTargets=2
