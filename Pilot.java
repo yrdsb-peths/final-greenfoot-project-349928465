@@ -22,13 +22,11 @@ public class Pilot extends Actor
     {
         if (Greenfoot.isKeyDown("W"))
         {
-            setRotation(270);
-            move(1);
+            setLocation(getX(), getY()-1);
         }
         if (Greenfoot.isKeyDown("S"))
         {
-            setRotation(90);
-            move(1);
+            setLocation(getX(), getY()+1);
         }
         if (Greenfoot.isKeyDown("space"))
         {
