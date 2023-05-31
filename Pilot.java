@@ -33,7 +33,8 @@ public class Pilot extends Actor
         if (Greenfoot.isKeyDown("space"))
         {
             setRotation(0);
+            MainWorld world = (MainWorld) getWorld();
+            world.createBullet(getX(), getY());
         }
     }
-    
 }
