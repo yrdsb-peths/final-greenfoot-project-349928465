@@ -22,9 +22,14 @@ public class Bullet extends Actor
      */
     public void act()
     {
-        setRotation(0);
-        move(1);
+        setLocation(getX()+1, getY());
         checkHit();
+        
+        MainWorld world = (MainWorld) getWorld();
+        if (getX() >= 600);
+        {
+            world.removeObject(this);
+        }
     }
     
     public void checkHit()
