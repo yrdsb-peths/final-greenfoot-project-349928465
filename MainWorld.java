@@ -20,7 +20,7 @@ public class MainWorld extends World
         
         Pilot pilot = new Pilot();
         
-        addObject(pilot, 0, 350);
+        addObject(pilot, 50, 350);
     }
     
     public void createBullet(int x, int y)

@@ -8,6 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
+    GreenfootImage bullet = new GreenfootImage("images/Bullet.png");
+    
+    public Bullet()
+    {
+        bullet.scale(50,10);
+        setImage(bullet);
+    }
+    
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
