@@ -24,9 +24,8 @@ public class Bullet extends Actor
     {
         setLocation(getX()+1, getY());
         checkHit();
-        
         MainWorld world = (MainWorld) getWorld();
-        if (getX() >= 600);
+        if (getX() >= world.getWidth())
         {
             world.removeObject(this);
         }
