@@ -22,7 +22,7 @@ public class Bullet extends Actor
      */
     public void act()
     {
-        setLocation(getX()+1, getY());
+        setLocation(getX()+3, getY());
         checkHit();
         MainWorld world = (MainWorld) getWorld();
         if (getX() >= world.getWidth())
@@ -36,14 +36,23 @@ public class Bullet extends Actor
         if(isTouching(RedBalloon.class))
         {
             removeTouching(RedBalloon.class);
+            MainWorld world = (MainWorld) getWorld();
+            world.increaseScore();
         }
         if(isTouching(BlueBalloon.class))
         {
             removeTouching(BlueBalloon.class);
+            MainWorld world = (MainWorld) getWorld();
+            world.increaseScore();
+            world.increaseScore();
         }
         if(isTouching(YellowBalloon.class))
         {
             removeTouching(YellowBalloon.class);
+            MainWorld world = (MainWorld) getWorld();
+            world.increaseScore();
+            world.increaseScore();
+            world.increaseScore();
         }
     }
 }

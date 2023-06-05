@@ -31,7 +31,6 @@ public class RedBalloon extends Actor
         {
             MainWorld world = (MainWorld) getWorld();
             world.createRedBalloon();
-            Greenfoot.delay(2000);
             timer.mark();
         }
     }
