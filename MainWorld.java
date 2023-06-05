@@ -76,19 +76,21 @@ public class MainWorld extends World
     
     public void levelCheck()
     {
+        int timerr = 0;
         timer.mark();
         if (level == 1)
         {
             for (int x = 0; x < 1000; x++)
             {
-                if (timer.millisElapsed() > 50)
+                timerr++;
+                if (timerr > 50)
                 {
                     int randomNum = Greenfoot.getRandomNumber(100);
                     if (randomNum > 50)
                     {
                         createRedBalloon();
                     }
-                    timer.mark();
+                    timerr+=-50;
                 }
             }
             level++;
