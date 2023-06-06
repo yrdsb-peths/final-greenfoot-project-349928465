@@ -14,7 +14,7 @@ public class Pilot extends Actor
     GreenfootImage[] shoot = new GreenfootImage[5];
     GreenfootImage[] fly = new GreenfootImage[2];
     
-    private int cooldown = 5000;
+    public static int cooldown = 0; 
     public Pilot()
     {
         for (int x = 0; x < fly.length; x++)
@@ -58,7 +58,7 @@ public class Pilot extends Actor
         {
             setLocation(getX(), getY()+2);
         }
-        if (cooldown == 5000)
+        if (cooldown > 0)
         {
             cooldown--;
         }
@@ -67,7 +67,7 @@ public class Pilot extends Actor
             setRotation(0);
             MainWorld world = (MainWorld) getWorld();
             world.createBullet(getX()+65, getY());
-            cooldown = 5000;
+            cooldown = 3;
         }
     }
 }

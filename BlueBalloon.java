@@ -20,6 +20,6 @@ public class BlueBalloon extends Actor
     
     public void movement()
     {
-        setLocation(getX()-1, getY());
+        setLocation(getX()-2, getY());
     }
 }
