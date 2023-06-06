@@ -46,6 +46,7 @@ public class Bullet extends Actor
             MainWorld world = (MainWorld) getWorld();
             world.increaseScore();
             world.increaseScore();
+            setLocation(601,0);
         }
         if(isTouching(YellowBalloon.class))
         {
@@ -54,6 +55,7 @@ public class Bullet extends Actor
             world.increaseScore();
             world.increaseScore();
             world.increaseScore();
+            setLocation(601,0);
         }
     }
 }

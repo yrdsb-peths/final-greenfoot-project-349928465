@@ -142,5 +142,17 @@ public class MainWorld extends World
             }
             level++;
         }
+        if (level == 4)
+        {
+            EndScreen endWorld = new EndScreen();
+            Greenfoot.setWorld(endWorld);
+        }
+    }
+    
+    public static int getScore()
+    {
+        int prevScore = score;
+        score = 0;
+        return prevScore; 
     }
 }       
