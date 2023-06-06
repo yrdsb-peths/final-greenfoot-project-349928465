@@ -14,6 +14,11 @@ public class YellowBalloon extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        movement();
+    }
+    
+    public void movement()
+    {
+        setLocation(getX()-3, getY());
     }
 }

@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainWorld extends World
 {
-    public static int score = -1;
+    public static int score = 0;
     public int level = 1;
     Label scoreboard;
-    SimpleTimer timer = new SimpleTimer();
+    SimpleTimer levelTimer = new SimpleTimer();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -27,12 +27,10 @@ public class MainWorld extends World
         Bullet blt = new Bullet();
         
         
-        
         addObject(pilot, 50, 350);
-        addObject(rb, 590, 330);
+        addObject(rb, 660, 330);
         addObject(scoreboard, 55, 55); 
-        addObject(blt, 599, 350);
-        timer.mark();
+        addObject(blt, 6000, 350);
     }
     
     public void act()
@@ -50,21 +48,33 @@ public class MainWorld extends World
     {
         RedBalloon balloon = new RedBalloon();
         int y = Greenfoot.getRandomNumber(400);
-        addObject(balloon, 590, y);
+        int x = Greenfoot.getRandomNumber(1300);
+        if (650 < x)
+        {
+            addObject(balloon, x, y);
+        }
     }
     
     public void createBlueBalloon()
     {
         BlueBalloon balloon = new BlueBalloon();
         int y = Greenfoot.getRandomNumber(400);
-        addObject(balloon,590,y);
+        int x = Greenfoot.getRandomNumber(1300);
+        if (650 < x)
+        {
+            addObject(balloon, x, y);
+        }
     }
     
     public void createYellowBalloon()
     {
         YellowBalloon balloon = new YellowBalloon();
         int y = Greenfoot.getRandomNumber(400);
-        addObject(balloon,590,y);
+        int x = Greenfoot.getRandomNumber(1300);
+        if (650 < x)
+        {
+            addObject(balloon, x, y);
+        }
     }
     
     
@@ -76,21 +86,58 @@ public class MainWorld extends World
     
     public void levelCheck()
     {
-        int timerr = 0;
-        timer.mark();
+        int timer = 0;
         if (level == 1)
         {
-            for (int x = 0; x < 1000; x++)
+            levelTimer.mark();
+            for (int x = 0; x < 10000; x++)
             {
-                timerr++;
-                if (timerr > 50)
+                timer++;
+                if (timer > 50)
                 {
                     int randomNum = Greenfoot.getRandomNumber(100);
                     if (randomNum > 50)
                     {
                         createRedBalloon();
                     }
-                    timerr+=-50;
+                    timer+=-50;
+                }
+            }
+            level++;
+        }
+        if (level == 2)
+        {
+            for (int x = 0; x < 10000; x++)
+            {
+                timer++;
+                if (timer > 50)
+                {
+                    int randomNum = Greenfoot.getRandomNumber(100);
+                    if (randomNum > 50)
+                    {
+                        createRedBalloon();
+                        createBlueBalloon();
+                    }
+                    timer+=-50;
+                }
+            }
+            level++;
+        }
+        if (level == 3)
+        {
+            for (int x = 0; x < 10000; x++)
+            {
+                timer++;
+                if (timer > 50)
+                {
+                    int randomNum = Greenfoot.getRandomNumber(100);
+                    if (randomNum > 50)
+                    {
+                        createRedBalloon();
+                        createBlueBalloon();
+                        createYellowBalloon();
+                    }
+                    timer+=-50;
                 }
             }
             level++;

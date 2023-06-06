@@ -38,6 +38,7 @@ public class Bullet extends Actor
             removeTouching(RedBalloon.class);
             MainWorld world = (MainWorld) getWorld();
             world.increaseScore();
+            setLocation(601,0);
         }
         if(isTouching(BlueBalloon.class))
         {

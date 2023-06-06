@@ -14,6 +14,7 @@ public class Pilot extends Actor
     GreenfootImage[] shoot = new GreenfootImage[5];
     GreenfootImage[] fly = new GreenfootImage[2];
     
+    private int cooldown = 5000;
     public Pilot()
     {
         for (int x = 0; x < fly.length; x++)
@@ -21,15 +22,8 @@ public class Pilot extends Actor
             fly[x] = new GreenfootImage("images/pilot_fly/fly" + x + ".png");
             fly[x].scale(105,75);
         }
-        for (int x = 0; x < shoot.length; x++)
-        {
-            shoot[x] = new GreenfootImage("images/pilot_shoot/shoot" + x + ".png");
-            shoot[x].scale(105,75);
-        }
         aniTimer.mark();
-        shootTimer.mark();
         setImage(fly[0]);
-        setImage(shoot[0]);
     }
     
     int imageIndex = 0;
@@ -40,34 +34,6 @@ public class Pilot extends Actor
             setImage(fly[imageIndex]);
             imageIndex = (imageIndex + 1) % fly.length;
             aniTimer.mark();
-        }
-    }
-    
-    public void pilotShoot()
-    {
-        while(shootTimer.millisElapsed() < 300)
-        {
-            if(shootTimer.millisElapsed() > 50)
-            {
-                setImage(shoot[0]);
-            }
-            if(shootTimer.millisElapsed() > 100)
-            {
-                setImage(shoot[1]);
-            }
-            if(shootTimer.millisElapsed() > 150)
-            {
-                setImage(shoot[2]);
-            }
-            if(shootTimer.millisElapsed() > 200)
-            {
-                setImage(shoot[3]);
-            }
-            if(shootTimer.millisElapsed() > 250)
-            {
-                setImage(shoot[4]);
-                shootTimer.mark();
-            }
         }
     }
     
@@ -92,12 +58,16 @@ public class Pilot extends Actor
         {
             setLocation(getX(), getY()+2);
         }
-        if (Greenfoot.isKeyDown("space"))
+        if (cooldown == 5000)
+        {
+            cooldown--;
+        }
+        else if (Greenfoot.isKeyDown("space"))
         {
             setRotation(0);
             MainWorld world = (MainWorld) getWorld();
             world.createBullet(getX()+65, getY());
-            pilotShoot();
+            cooldown = 5000;
         }
     }
 }
