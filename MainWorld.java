@@ -31,6 +31,7 @@ public class MainWorld extends World
         addObject(rb, 660, 330);
         addObject(scoreboard, 55, 55); 
         addObject(blt, 6000, 350);
+        levelTimer.mark();
     }
     
     public void act()
@@ -86,27 +87,29 @@ public class MainWorld extends World
     
     public void levelCheck()
     {
-        int timer = 0;
         if (level == 1)
         {
-            levelTimer.mark();
-            for (int x = 0; x < 10000; x++)
+            for (int x = 0; x < 1000; x++)
             {
-                timer++;
-                if (timer > 50)
+                if (levelTimer.millisElapsed() > 50)
                 {
                     int randomNum = Greenfoot.getRandomNumber(100);
                     if (randomNum > 50)
                     {
                         createRedBalloon();
                     }
-                    timer+=-50;
+                    levelTimer.mark();
                 }
             }
-            level++;
+            if (levelTimer.millisElapsed() > 1000 && score > 1)
+            {
+                level++;
+            }
         }
+        /*
         if (level == 2)
         {
+            levelTimer.mark();
             for (int x = 0; x < 10000; x++)
             {
                 timer++;
@@ -121,10 +124,14 @@ public class MainWorld extends World
                     timer+=-50;
                 }
             }
-            level++;
+            if (levelTimer.millisElapsed() > 10000)
+            {
+                level++;
+            }
         }
         if (level == 3)
         {
+            levelTimer.mark();
             for (int x = 0; x < 10000; x++)
             {
                 timer++;
@@ -140,13 +147,17 @@ public class MainWorld extends World
                     timer+=-50;
                 }
             }
-            level++;
+            if (levelTimer.millisElapsed() > 10000)
+            {
+                level++;
+            }
         }
         if (level == 4)
         {
             EndScreen endWorld = new EndScreen();
             Greenfoot.setWorld(endWorld);
         }
+        */
     }
     
     public static int getScore()
@@ -154,5 +165,11 @@ public class MainWorld extends World
         int prevScore = score;
         score = 0;
         return prevScore; 
+    }
+    
+    public void gameOver()
+    {
+        GameOverScreen deathScreen = new GameOverScreen();
+        Greenfoot.setWorld(deathScreen);
     }
 }       
