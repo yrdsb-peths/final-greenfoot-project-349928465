@@ -10,6 +10,7 @@ public class GameOverScreen extends World
 {
     Label titleLabel = new Label ("You Died", 75);
     Label scoreLabel = new Label ("Score: " + MainWorld.getScore(), 50);
+    DeadPilot dead = new DeadPilot();
     /**
      * Constructor for objects of class GameOverScreen.
      * 
@@ -21,5 +22,6 @@ public class GameOverScreen extends World
         
         addObject(titleLabel, getWidth()/2, getHeight()/2);
         addObject(scoreLabel, getWidth()/2, getHeight()/2 + 75);
+        addObject(dead, getWidth()/2, getHeight()/2 - 75);
     }
 }
