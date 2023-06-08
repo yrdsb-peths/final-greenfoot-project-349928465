@@ -15,6 +15,11 @@ public class YellowBalloon extends Actor
     public void act()
     {
         movement();
+        MainWorld world = (MainWorld) getWorld();
+        if (getX() < 0)
+        {
+            world.gameOver();
+        }
     }
     
     public void movement()

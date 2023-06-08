@@ -101,19 +101,16 @@ public class MainWorld extends World
                     levelTimer.mark();
                 }
             }
-            if (levelTimer.millisElapsed() > 1000 && score > 1)
+            if (score > 50)
             {
                 level++;
             }
         }
-        /*
         if (level == 2)
         {
-            levelTimer.mark();
-            for (int x = 0; x < 10000; x++)
+            for (int x = 0; x < 1000; x++)
             {
-                timer++;
-                if (timer > 50)
+                if (levelTimer.millisElapsed() > 50)
                 {
                     int randomNum = Greenfoot.getRandomNumber(100);
                     if (randomNum > 50)
@@ -121,33 +118,31 @@ public class MainWorld extends World
                         createRedBalloon();
                         createBlueBalloon();
                     }
-                    timer+=-50;
+                    levelTimer.mark();
                 }
             }
-            if (levelTimer.millisElapsed() > 10000)
+            if (score > 150)
             {
                 level++;
             }
         }
+        
         if (level == 3)
         {
-            levelTimer.mark();
             for (int x = 0; x < 10000; x++)
             {
-                timer++;
-                if (timer > 50)
+                if (levelTimer.millisElapsed() > 50)
                 {
                     int randomNum = Greenfoot.getRandomNumber(100);
                     if (randomNum > 50)
                     {
                         createRedBalloon();
                         createBlueBalloon();
-                        createYellowBalloon();
                     }
-                    timer+=-50;
+                    levelTimer.mark();
                 }
             }
-            if (levelTimer.millisElapsed() > 10000)
+            if (score > 250)
             {
                 level++;
             }
@@ -157,7 +152,6 @@ public class MainWorld extends World
             EndScreen endWorld = new EndScreen();
             Greenfoot.setWorld(endWorld);
         }
-        */
     }
     
     public static int getScore()
