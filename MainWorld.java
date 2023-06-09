@@ -121,7 +121,7 @@ public class MainWorld extends World
                     levelTimer.mark();
                 }
             }
-            if (score > 150)
+            if (score > 250)
             {
                 level++;
             }
@@ -138,11 +138,12 @@ public class MainWorld extends World
                     {
                         createRedBalloon();
                         createBlueBalloon();
+                        createYellowBalloon();
                     }
                     levelTimer.mark();
                 }
             }
-            if (score > 250)
+            if (score > 600)
             {
                 level++;
             }
