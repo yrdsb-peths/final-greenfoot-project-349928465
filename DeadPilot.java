@@ -1,26 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DeadPilot here.
+ * Dead pilot for the game over screen
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jimmy Yip
+ * @version June 13 2023
  */
 public class DeadPilot extends Actor
 {
+    // Constructor which sets its image
     public DeadPilot()
     {
         GreenfootImage dead = new GreenfootImage("images/dead.png");
         dead.scale(105,75);
         setImage(dead);
-    }
-    
-    /**
-     * Act - do whatever the DeadPilot wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
     }
 }

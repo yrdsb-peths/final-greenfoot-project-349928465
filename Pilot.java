@@ -1,20 +1,27 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Pilot here.
+ * Pilot class for the main world which can fly and shoot
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jimmy Yip
+ * @version June 13 2023
  */
 public class Pilot extends Actor
 {
+    // Initializes objects and variables
     SimpleTimer aniTimer = new SimpleTimer();
     SimpleTimer shootTimer = new SimpleTimer();
+    
+    GreenfootSound gunSound = new GreenfootSound("ak47.mp3");
     
     GreenfootImage[] shoot = new GreenfootImage[5];
     GreenfootImage[] fly = new GreenfootImage[2];
     
     public static int cooldown = 0; 
+    
+    /**
+     * Constructor which starts loads animation images and starts timer
+     */
     public Pilot()
     {
         for (int x = 0; x < fly.length; x++)
@@ -27,6 +34,9 @@ public class Pilot extends Actor
     }
     
     int imageIndex = 0;
+    /**
+     * Animates the pilots flying motion
+     */
     public void pilotFly()
     {
         if (aniTimer.millisElapsed() > 75)
@@ -38,8 +48,7 @@ public class Pilot extends Actor
     }
     
     /**
-     * Act - do whatever the Pilot wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - runs the methods which move and animate it
      */
     public void act()
     {
@@ -48,26 +57,34 @@ public class Pilot extends Actor
         pilotFly();
     }
     
+    /**
+     * Takes input from the user and moves and allows them to shoot
+     */
     public void movement()
     {
+        //Moves up 3 units
         if (Greenfoot.isKeyDown("W"))
         {
             setLocation(getX(), getY()-3);
         }
+        // Moves down 3 units
         if (Greenfoot.isKeyDown("S"))
         {
             setLocation(getX(), getY()+3);
         }
+        // Cooldown for the gun so that the user doesn't spawn too many bullets
         if (cooldown > 0)
         {
             cooldown--;
         }
+        // Creates bullets, plays sound and resets cooldown
         else if (Greenfoot.isKeyDown("space"))
         {
             setRotation(0);
             MainWorld world = (MainWorld) getWorld();
             world.createBullet(getX()+65, getY());
             cooldown = 3;
+            gunSound.play();
         }
     }
 }

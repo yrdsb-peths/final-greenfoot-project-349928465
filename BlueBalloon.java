@@ -1,18 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BlueBalloon here.
+ * Blue balloon which moves quicker than red but slower than yellow
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jimmy Yip
+ * @version June 13 2023
  */
 public class BlueBalloon extends Actor
 {
     /**
-     * Act - do whatever the BlueBalloon wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - consistently moves the balloon and checks if it is 
+     * outside the world's boundaries
      */
-    
     public void act()
     {
         movement();
@@ -23,6 +22,9 @@ public class BlueBalloon extends Actor
         }
     }
     
+    /**
+     * Moves balloon 2 units left
+     */
     public void movement()
     {
         setLocation(getX()-2, getY());

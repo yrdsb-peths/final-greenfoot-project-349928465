@@ -1,18 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RedBalloon here.
+ * Red balloon which is the slowest of the 3 balloons
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jimmy Yip
+ * @version June 13 2023
  */
 public class RedBalloon extends Actor
 {
     /**
-     * Act - do whatever the RedBalloon wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - consistently moves the balloon and checks if it is 
+     * outside the world's boundaries
      */
-    
     public void act()
     {
         movement();
@@ -23,6 +22,9 @@ public class RedBalloon extends Actor
         }
     }
     
+    /**
+     * Moves balloon 1 unit left
+     */
     public void movement()
     {
         setLocation(getX()-1, getY());

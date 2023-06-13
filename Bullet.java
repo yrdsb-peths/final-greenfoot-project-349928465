@@ -1,15 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bullet here.
+ * Bullet which travels through the air and pops balloons
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jimmy Yip
+ * @version June 13 2023
  */
 public class Bullet extends Actor
 {
+    // Initializes bullet image
     GreenfootImage bullet = new GreenfootImage("images/Bullet.png");
     
+    /**
+     * Constructor for bullet class
+     */
     public Bullet()
     {
         bullet.scale(50,10);
@@ -17,8 +21,8 @@ public class Bullet extends Actor
     }
     
     /**
-     * Act - do whatever the Bullet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - moves bullet 3 units right, checks if it hit a balloon and 
+     * checks if it is outside the world's boundaries
      */
     public void act()
     {
@@ -31,23 +35,30 @@ public class Bullet extends Actor
         }
     }
     
+    /**
+     * Checks if it is touching a balloon
+     * and remove and updates scores accordingly
+     */
     public void checkHit()
     {
+        // Removes red balloon and increases score by 1
         if(isTouching(RedBalloon.class))
         {
             removeTouching(RedBalloon.class);
             MainWorld world = (MainWorld) getWorld();
             world.increaseScore();
-            setLocation(601,0);
+            setLocation(601,0); // puts the object outside the screen to remove it
         }
+        // Removes the blue balloon and increases score by 2
         if(isTouching(BlueBalloon.class))
         {
             removeTouching(BlueBalloon.class);
             MainWorld world = (MainWorld) getWorld();
             world.increaseScore();
             world.increaseScore();
-            setLocation(601,0);
+            setLocation(601,0); // puts the object outside the screen to remove it
         }
+        // Removes the yellow ballon and increases score by 3
         if(isTouching(YellowBalloon.class))
         {
             removeTouching(YellowBalloon.class);
@@ -55,7 +66,7 @@ public class Bullet extends Actor
             world.increaseScore();
             world.increaseScore();
             world.increaseScore();
-            setLocation(601,0);
+            setLocation(601,0); // puts the object outside the screen to remove it
         }
     }
 }
