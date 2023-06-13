@@ -1,7 +1,7 @@
 # Final Greenfoot Project
 
 Flying Fighter is a game where you fight as a pilot in the sky to shoot down balloons. There are 3 increasingly difficult levels.
-The game ends when you have a score of 700. You only have 1 life so don't let the balloons live!
+The game ends when you have a score of 700. You only have 1 life so don't let the balloons fly past you!
 
 
 Pilot Sprite:
