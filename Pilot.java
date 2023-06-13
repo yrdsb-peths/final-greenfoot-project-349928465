@@ -67,10 +67,20 @@ public class Pilot extends Actor
         {
             setLocation(getX(), getY()-3);
         }
+        // Moves left 3 units
+        if (Greenfoot.isKeyDown("A"))
+        {
+            setLocation(getX()-3, getY());
+        }
         // Moves down 3 units
         if (Greenfoot.isKeyDown("S"))
         {
             setLocation(getX(), getY()+3);
+        }
+        // Moves right 3 units
+        if (Greenfoot.isKeyDown("D"))
+        {
+            setLocation(getX()+3, getY());
         }
         // Cooldown for the gun so that the user doesn't spawn too many bullets
         if (cooldown > 0)

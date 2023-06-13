@@ -1,7 +1,8 @@
 # Final Greenfoot Project
-This is the README.md file.
 
-Consider using **Markdown** syntax to format the text in this file. [Markdown basics](https://www.markdownguide.org/getting-started/)
+Flying Fighter is a game where you fight as a pilot in the sky to shoot down balloons. There are 3 increasingly difficult levels.
+The game ends when you have a score of 700. You only have 1 life so don't let the balloons live!
+
 
 Pilot Sprite:
 https://opengameart.org/content/free-plane-sprite

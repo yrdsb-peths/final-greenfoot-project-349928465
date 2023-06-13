@@ -10,7 +10,7 @@ public class TitleScreen extends World
 {
     Label titleLabel = new Label ("Flying Fighter", 75);
     Label instructions = new Label ("Press <enter> to begin", 35);
-    Label controls1 = new Label ("Use <W> and <S> to move", 35);
+    Label controls1 = new Label ("Use <W> <A> <S> <D> to move", 35);
     Label controls2 = new Label ("Use <space> to shoot", 35);
     AlivePilot pilot = new AlivePilot();
     /**
