@@ -26,7 +26,7 @@ public class Bullet extends Actor
      */
     public void act()
     {
-        setLocation(getX()+3, getY());
+        setLocation(getX()+5, getY());
         checkHit();
         MainWorld world = (MainWorld) getWorld();
         if (getX() >= world.getWidth())
