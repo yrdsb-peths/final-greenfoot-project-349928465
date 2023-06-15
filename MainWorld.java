@@ -179,6 +179,7 @@ public class MainWorld extends World
         if (level == 4)
         {
             EndScreen endWorld = new EndScreen();
+            score = 0;
             Greenfoot.setWorld(endWorld);
         }
     }
