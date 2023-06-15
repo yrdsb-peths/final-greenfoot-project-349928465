@@ -11,6 +11,7 @@ public class GameOverScreen extends World
     // Initialize labels
     Label titleLabel = new Label ("You Died", 75);
     Label scoreLabel = new Label ("Score: " + MainWorld.getScore(), 50);
+    Label restart = new Label ("Press <enter> to play again!", 50);
     DeadPilot dead = new DeadPilot();
     /**
      * Constructor for objects of class GameOverScreen.
@@ -25,5 +26,18 @@ public class GameOverScreen extends World
         addObject(titleLabel, getWidth()/2, getHeight()/2);
         addObject(scoreLabel, getWidth()/2, getHeight()/2 + 75);
         addObject(dead, getWidth()/2, getHeight()/2 - 75);
+        addObject(restart, getWidth()/2, getHeight()/2 + 125);
+    }
+    
+    /**
+     * Restarts game if 'enter' key is pressed
+     */
+    public void act()
+    {
+        if (Greenfoot.isKeyDown("enter"))
+        {
+            MainWorld game = new MainWorld();
+            Greenfoot.setWorld(game);
+        }
     }
 }

@@ -180,6 +180,7 @@ public class MainWorld extends World
         {
             EndScreen endWorld = new EndScreen();
             score = 0;
+            resetLevel();
             Greenfoot.setWorld(endWorld);
         }
     }
@@ -194,12 +195,18 @@ public class MainWorld extends World
         return prevScore; 
     }
     
+    public void resetLevel()
+    {
+        level = 1;
+    }
+    
     /**
      * Switches world to the GameOverScreen();
      */
     public void gameOver()
     {
         GameOverScreen deathScreen = new GameOverScreen();
+        resetLevel();
         Greenfoot.setWorld(deathScreen);
     }
 }       
